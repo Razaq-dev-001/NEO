@@ -1,0 +1,47 @@
+{
+  "name": "neo-ai-companion",
+  "version": "1.0.0",
+  "description": "NEO — A Fully Interactive 3D Personal AI Robot Companion",
+  "main": "dist-electron/main.js",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"node server/kokoroServer.mjs\" \"vite\"",
+    "tts:server": "node server/kokoroServer.mjs",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "electron:dev": "concurrently -k \"node server/kokoroServer.mjs\" \"vite\" \"wait-on tcp:5173 && tsc -p electron/tsconfig.json && electron .\"",
+    "electron:build": "vite build && tsc -p electron/tsconfig.json && electron-builder"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.0",
+    "@react-three/drei": "^9.121.4",
+    "@react-three/fiber": "^8.17.14",
+    "clsx": "^2.1.1",
+    "framer-motion": "^11.18.2",
+    "kokoro-js": "^1.2.1",
+    "lucide-react": "^0.474.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "sql.js": "^1.12.0",
+    "tailwind-merge": "^2.6.0",
+    "three": "^0.169.0",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.10",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@types/sql.js": "^1.4.9",
+    "@types/three": "^0.169.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.1.2",
+    "electron": "^34.0.2",
+    "electron-builder": "^25.1.8",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.11",
+    "wait-on": "^8.0.2"
+  }
+}
